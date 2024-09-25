@@ -25,4 +25,21 @@ class OhmsLawCalculator:
         except ValueError:
             print("Invalid input. Please enter a number.")
 # 3. Calculate their input using Ohm's Law and display the result, while alsong considering cases where division by zero might occcur.
+    def calculate_result(self):
+        try:
+            if self.choice.lower() == "voltage":
+                self.voltage = self.current * self.resistance
+                print("The voltage is", self.voltage, "volts")
+            elif self.choice.lower() == "current":
+                if self.resistance == 0:
+                    raise ZeroDivisionError
+                self.current = self.voltage / self.resistance
+                print("The current is", self.current, "amperes")
+            elif self.choice.lower() == "resistance":
+                if self.current == 0:
+                    raise ZeroDivisionError
+                self.resistance = self.voltage / self.current
+                print("The resistance is", self.resistance, "ohms")
+        except ZeroDivisionError:
+            print("Error: Division by zero is not allowed.")
 
