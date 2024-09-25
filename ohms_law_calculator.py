@@ -42,4 +42,11 @@ class OhmsLawCalculator:
                 print("The resistance is", self.resistance, "ohms")
         except ZeroDivisionError:
             print("Error: Division by zero is not allowed.")
+# 4. Call the functions and run the program
+    def run(self):
+        self.get_user_choice()
+        self.get_input_values()
+        self.calculate_result()
 
+calculator = OhmsLawCalculator()
+calculator.run()
