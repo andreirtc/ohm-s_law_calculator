@@ -9,5 +9,20 @@ class OhmsLawCalculator:
     def get_user_choice(self):
         self.choice = input("What do you want to calculate? Voltage, Current, or Resistance: ")
 # 2. Based on their choice, prompt the user to input the appropriate values. 
+    def get_input_values(self):
+        try:
+            if self.choice.lower() == "voltage":
+                self.current = float(input("Enter the current in amperes: "))
+                self.resistance = float(input("Enter the resistance in ohms: "))
+            elif self.choice.lower() == "current":
+                self.voltage = float(input("Enter the voltage in volts: "))
+                self.resistance = float(input("Enter the resistance in ohms: "))
+            elif self.choice.lower() == "resistance":
+                self.voltage = float(input("Enter the voltage in volts: "))
+                self.current = float(input("Enter the current in amperes: "))
+            else:
+                print("Invalid choice. Please choose either Voltage, Current, or Resistance.")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
 # 3. Calculate their input using Ohm's Law and display the result, while alsong considering cases where division by zero might occcur.
 
